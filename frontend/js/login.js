@@ -134,8 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (googleSignInBtn) {
     const client_id =
-    "1000406137081-v10cu7snqoucl6sah3t9g5qsq1ch7ntu.apps.googleusercontent.com";
-      // "626162008019-rpsgku39p9p1mdh9s1ad3ls9ejq7h3b1.apps.googleusercontent.com";
+      "626162008019-rpsgku39p9p1mdh9s1ad3ls9ejq7h3b1.apps.googleusercontent.com";
     const redirect_uri = window.location.origin + window.location.pathname;
     const googleAuthUrl = new URL(
       "https://accounts.google.com/o/oauth2/v2/auth"
