@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const wasCallbackHandled = await handleOauthCallback();
-  if (wasCallbackHandled) return;
+  if (wasCallbackHandled) return; 
 
   if (googleSignInBtn) {
     const client_id =
