@@ -1,14 +1,14 @@
-# ScopeMarket
+# VaultMarket
 
 A web application that provides a platform for users to buy and sell goods. It features a Node.js and Express backend with a simple HTML-based frontend. The application includes APIs for user authentication, user management, and KYC (Know Your Customer) processes.
 
 ## Installation
 
-To get started with ScopeMarket, clone the repository and install the dependencies:
+To get started with VaultMarket, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-username/scopemarket.git
-cd scopemarket
+git clone https://github.com/ciocoltan/vault-markets-trade.git
+cd Vaultmarket
 npm install
 ```
 
