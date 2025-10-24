@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function handleSocialLogin(provider, token, flow) {
     try {
-      let payload = { provider, token };
+      let payload = { provider, token }; 
 
       if (flow === "register") {
         console.log("Registration flow detected. Adding tracking data...");
