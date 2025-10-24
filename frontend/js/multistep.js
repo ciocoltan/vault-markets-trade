@@ -282,39 +282,30 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
 
     if (!validateStep(stepIndexToSubmit)) return;
 
-    // toggleSpinner(true);
-    // setTimeout(() => {
-    //   toggleSpinner(false);
-    // }, 1000);
+    toggleSpinner(true);
+    setTimeout(() => {
+      toggleSpinner(false);
+    }, 1000);
 
     DOM.generalError.classList.add("hidden");
 
     const currentStepData = collectCurrentStepFormData();
     state.formData = { ...state.formData, ...currentStepData };
 
-    // --- NEW RISK CHECK LOGIC ---
-    // This runs when the user is on step 3-2 and clicks "Next"
-    if (currentStepId === "3-2") {
-      // Find the text of the selected answers from Step 3
-      const experienceText = state.formData.experience_text || "";
+    if (currentStepId === "3-2") {     const experienceText = state.formData.experience_text || "";
       const riskText = state.formData.riskTolerance_text || "";
-      const objectiveText = state.formData.tradingObjective_text || "";
-      
-      // Check if any "No" answers were selected
+      const objectiveText = state.formData.tradingObjective_text || "";      
       const hasFailedTest = (experienceText.toLowerCase() === 'no') ||
                             (riskText.toLowerCase() === 'no') ||
-                            (objectiveText.toLowerCase() === 'no'); // Adjust "no" if text is different
+                            (objectiveText.toLowerCase() === 'no'); 
 
       if (hasFailedTest) {
         const agreed = await showRiskModal();
         if (!agreed) {
-          // User cancelled. Do not advance.
           return; 
         }
-        // If they agreed, we continue to the next step
       }
     }
-    // --- END RISK CHECK LOGIC ---
 
     if (state.currentStepIndex < STEP_FLOW.length - 1) {
       state.currentStepIndex++;
@@ -1047,9 +1038,7 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
     }
   });
 
-  /**
-   * Validates a number string using the Luhn algorithm.
-   */
+  //  Validates a number string using the Luhn algorithm.  
   function isValidLuhn(numberString) {
     let sum = 0;
     const length = numberString.length;
@@ -1071,10 +1060,6 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
     return lastDigit === checkDigit;
   }
 
-  /**
-   * Tries to parse a Date of Birth from a 13-digit South African ID number.
-   * Returns { day, month, year } or null if invalid.
-   */
   function parseDOBFromSAID(idString) {
     if (idString.length !== 13) return null;
 
@@ -1083,11 +1068,8 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
     const month = parseInt(dobString.substring(2, 4), 10);
     const day = parseInt(dobString.substring(4, 6), 10);
 
-    // Determine full year (e.g., 99 = 1999, 01 = 2001)
-    year = year + (year < (new Date().getFullYear() % 100) + 5 ? 2000 : 1900); // Heuristic for century
-console.log("Year:", year);
+    year = year + (year < (new Date().getFullYear() % 100) + 5 ? 2000 : 1900);
 
-    // Basic date validation
     if (month < 1 || month > 12 || day < 1 || day > 31) return null;
 
     const testDate = new Date(year, month - 1, day);
@@ -1096,7 +1078,7 @@ console.log("Year:", year);
       testDate.getMonth() + 1 !== month ||
       testDate.getDate() !== day
     ) {
-      return null; // Invalid date (e.g., Feb 30th)
+      return null; 
     }
 
     // Check if user is 18+
@@ -1108,7 +1090,7 @@ console.log("Year:", year);
     );
     if (testDate > minBirthDate) {
       console.warn("User is under 18 based on ID.");
-      return null; // User is under 18
+      return null;
     }
 
     return { day, month, year };
@@ -1191,18 +1173,14 @@ console.log("Year:", year);
     }
   }
 
-/**
-   * Shows the risk warning modal and returns a Promise.
-   * Resolves(true) if the user agrees.
-   * Resolves(false) if the user cancels.
-   */
+
+  //  Shows the risk warning modal and returns a Promise.
+
   function showRiskModal() {
     return new Promise((resolve) => {
       DOM.riskModalOverlay.classList.remove("hidden");
-
-      // Disable agree button initially
       DOM.riskAgreeBtn.disabled = true;
-      DOM.riskAcceptCheckbox.checked = false; // Ensure it's unchecked
+      DOM.riskAcceptCheckbox.checked = false;
 
       const onCheckboxChange = () => {
         DOM.riskAgreeBtn.disabled = !DOM.riskAcceptCheckbox.checked;
@@ -1218,7 +1196,6 @@ console.log("Year:", year);
         resolve(false);
       };
 
-      // Cleans up all event listeners
       const cleanup = () => {
         DOM.riskModalOverlay.classList.add("hidden");
         DOM.riskAcceptCheckbox.removeEventListener('change', onCheckboxChange);
