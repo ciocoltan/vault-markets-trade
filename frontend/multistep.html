@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/css/intlTelInput.css">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P2CJTT4');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body class="main-container">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2CJTT4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header-placeholder"></div>
+
+    <div id="spinner-overlay"
+        class="spinner absolute inset-0 bg-opacity-70 backdrop-blur-sm flex items-center justify-center rounded-xl hidden">
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div id="risk-modal-overlay" class="spinner absolute inset-0 bg-opacity-95 backdrop-blur-sm flex items-center justify-center rounded-xl hidden" style="z-index: 998;">
+    <div id="risk-modal" class="form-container" style="background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 8px">
+        <h2 class="form-title" style="font-size: 1.5rem; line-height: 2rem;">Note:</h2>
+        <p class="text-gray-700 mb-6 mt-4 text-sm leading-relaxed">
+            Your test result indicates that our CFD product is not suitable for you. As derivative instruments carry risk, we recommend discontinuing the onboarding process and returning when you are appropriately ready to transact in derivative instruments. In the event you wish to disregard this warning, accept the risk and begin trading, please tick the box below and click next.
+        </p>
+        
+        <div class="flex items-start mb-6">
+            <input id="risk-accept-checkbox" type="checkbox" class="privacy-checkbox mt-1">
+            <label for="risk-accept-checkbox" class="privacy-label" style="line-height: 1.5; font-size: 14px;">I accept the risk and wish to continue</label>
+        </div>
+        
+        <div class="flex justify-end space-x-4">
+            <button id="risk-cancel-btn" type="button" class="back-btn" style="display: inline-flex;">Back</button>
+            <button id="risk-agree-btn" type="button" class="form-submit-button" disabled>Next</button>
+        </div>
+    </div>
+</div>
+
+    <div class="content-container">
+
+        <div id="multistep-container" class=" form-container p-0">
+            <div class="flex items-start mb-7 md:mb-16">
+                <div class="stepper-item active" data-step="1">
+                    <div class="stepper-connector">
+                        <div class="progress" id="progress-1"></div>
+                    </div>
+                    <div class="step-counter">1</div>
+                    <div class="step-name">Personal details</div>
+                </div>
+                <div class="stepper-item inactive" data-step="2">
+                    <div class="stepper-connector">
+                        <div class="progress" id="progress-2"></div>
+                    </div>
+                    <div class="step-counter">2</div>
+                    <div class="step-name">Financial information</div>
+                </div>
+                <div class="stepper-item inactive" data-step="3">
+                    <div class="stepper-connector">
+                        <div class="progress" id="progress-3"></div>
+                    </div>
+                    <div class="step-counter">3</div>
+                    <div class="step-name">Knowledge and experience</div>
+                </div>
+                <div class="stepper-item inactive" data-step="4">
+                    <div class="step-counter">4</div>
+                    <div class="step-name">Verification</div>
+                </div>
+            </div>
+
+            <div class="max-w-md1 mx-auto">
+                <form id="multi-step-form" novalidate>
+                    <div id="step-1-0" class="form-step">
+                        <h2 class="question-title">Personal Details</h2>
+                        <p class="question-subtitle">Must match details on your ID / passport</p>
+                        <div class=" space-y-3 max-w-md mx-auto">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="first-name" class="text-sm font-medium text-gray-700">First name</label>
+                                    <input type="text" name="fname" id="first-name" required class="form-input"
+                                        placeholder="First name">
+                                    <p class="error-text hidden"></p>
+                                </div>
+                                <div>
+                                    <label for="last-name" class="text-sm font-medium text-gray-700">Last name</label>
+                                    <input type="text" name="lname" id="last-name" required class="form-input"
+                                        placeholder="Last name">
+                                    <p class="error-text hidden"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="nationality" class="text-sm font-medium text-gray-700">Nationality</label>
+                                <select id="nationality" name="country_id" required class="form-input">
+                                    <option value="">Loading...</option>
+                                </select>
+                                <p class="error-text hidden"></p>
+                            </div>
+                            <div>
+                                <label for="phone" class="text-sm font-medium text-gray-700">Phone</label>
+                                <input type="tel" name="phone_text" id="phone" required class="form-input">
+                                <p id="error-phone" class="error-text hidden"></p>
+                            </div>
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto">
+                            <button type="button" class="next-btn form-submit-button">Next</button>
+                        </div>
+                    </div>
+
+                    <div id="step-1-1" class="form-step" style="display: none;">
+                        <h2 class="question-title">Identification type</h2>
+                        <!-- <p class="question-subtitle">Must match address on accepted proof of address document</p> -->
+                        <div class=" space-y-3 max-w-md mx-auto">
+                            <div>
+                                <label for="identification-type"
+                                    class="text-sm font-medium text-gray-700">Identification type</label>
+                                <select id="identification-type" name="identificationType" required class="form-input">
+                                    <option value="">Loading...</option>
+                                </select>
+                                <p class="error-text hidden"></p>
+                            </div>
+                            <div id="id-number-wrapper" style="display: none;">
+                                <label for="id-number" class="text-sm font-medium text-gray-700">ID number</label>
+                                <input type="text" name="idNumber" id="id-number" required class="form-input"
+                                    placeholder="13 digits">
+                                <p class="error-text hidden"></p>
+                            </div>
+                            <div id="dob-section-wrapper" style="display: none;">
+                                <label class="text-sm font-medium text-gray-700">Date of birth</label>
+                                <div class="grid grid-cols-3 gap-4 mt-1">
+                                    <select id="dob-day" name="dob-day" required class="form-input">
+                                        <option value="">Day</option>
+                                    </select>
+                                    <select id="dob-month" name="dob-month" required class="form-input">
+                                        <option value="">Month</option>
+                                    </select>
+                                    <select id="dob-year" name="dob-year" required class="form-input">
+                                        <option value="">Year</option>
+                                    </select>
+                                </div>
+                                <p class="error-text hidden" id="error-dob-day"></p>
+                            </div>
+                            
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                            <button type="button" class="next-btn form-submit-button">Next</button>
+                        </div>
+                    </div>
+
+                    <div id="step-1-2" class="form-step" style="display: none;">
+                        <h2 class="question-title">Residence Address</h2>
+                        <p class="question-subtitle">Must match address on accepted proof of address document</p>
+                        <div class=" space-y-3 max-w-md mx-auto">
+                            <div>
+                                <label for="residence-country" class="text-sm font-medium text-gray-700">Residence
+                                    country</label>
+                                <select id="residence-country" name="residenceCountry" required class="form-input">
+                                    <option value="">Loading...</option>
+                                </select>
+                                <p class="error-text hidden"></p>
+                            </div>
+                            <div class="pt-2 space-y-3 max-w-md mx-auto">
+                                <div class="flex items-center">
+                                    <input id="not-us-citizen" name="notUsCitizen" type="checkbox" required value="Yes"
+                                        class="privacy-checkbox">
+                                    <label for="not-us-citizen" class="ml-2 block text-sm text-gray-900">I am not a
+                                        citizen
+                                        or resident of the USA for tax purposes.</label>
+                                </div>
+                                <p id="error-not-us-citizen" class="error-text hidden"></p>
+                            </div>
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                            <button type="button" class="next-btn form-submit-button">Next</button>
+                        </div>
+                    </div>
+
+                    <div id="step-2-0" class="form-step text-center" style="display: none;"
+                        data-form-key="employmentStatus">
+                        <h2 class="question-title">What is the source of your investment funds?</h2>
+                        <div class="space-y-3 max-w-md mx-auto">
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                        </div>
+                    </div>
+
+                    <div id="step-2-1" class="form-step text-center" style="display: none;"
+                        data-form-key="industryStatus">
+                        <h2 class="question-title">What is your current employment status?</h2>
+                        <div class="space-y-3 max-w-md mx-auto industry-step">
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                        </div>
+                    </div>                    
+
+                    <div id="step-3-0" class="form-step text-center" style="display: none;" data-form-key="experience">
+                        <h2 class="question-title">Do you know that you can lose all your money? </h2>
+                        <div class="space-y-3 max-w-md mx-auto">
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                        </div>
+                    </div>
+                    <div id="step-3-1" class="form-step text-center" style="display: none;"
+                        data-form-key="riskTolerance">
+                        <h2 class="question-title">Have you traded derivatives for more than a year? </h2>
+                        <div class="space-y-3 max-w-md mx-auto">
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                        </div>
+                    </div>
+                    <div id="step-3-2" class="form-step text-center" style="display: none;"
+                        data-form-key="tradingObjective">
+                        <h2 class="question-title">Do you know what leverage is?</h2>
+                        <div class="space-y-3 max-w-md mx-auto">
+                        </div>
+                        <div class="next-btn-section max-w-md mx-auto"><button type="button"
+                                class="back-btn">Back</button>
+                        </div>
+                    </div>
+
+                    <div id="step-4-0" class="form-step text-center" style="display: none;">
+                        <h2 class="question-title">Identity Verification</h2>
+                        <p class="question-subtitle">Please complete the identity verification process below.</p>
+                        <div id="sumsub-websdk-container"></div>
+                    </div>
+
+                    <p id="general-error" class="error-text text-center mt-4 hidden"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/intlTelInput.min.js"></script>
+    <script src="https://static.sumsub.com/idensic/static/sns-websdk-builder.js"></script>
+
+</body>
+
+</html>

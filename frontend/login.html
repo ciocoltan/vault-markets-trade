@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcFJusrAAAAAI4XeQgnTdAQ1sWQJmspwX-OhGIP" async defer></script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P2CJTT4');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body class="main-container">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2CJTT4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header-placeholder"></div>
+
+    <div id="spinner-overlay"
+        class="spinner absolute inset-0 bg-opacity-70 backdrop-blur-sm flex items-center justify-center rounded-xl hidden">
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <div class="content-container bg-img">
+        <div class="form-container max-500 bg-blur">
+            <div class="text-center">
+                <h2 class="form-title">Welcome Back</h2>
+                <p class="form-subtitle">Don't have an account? <a href="../register/" class="form-link">Register here</a></p>
+            </div>
+
+            <div class="social-media-conatiner">
+                <div class="social-media-btn">
+                    <a id="google-signin-link" href="#">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 48 48">
+                            <path fill="#FFC107"
+                                d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z">
+                            </path>
+                            <path fill="#FF3D00"
+                                d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                                d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z">
+                            </path>
+                            <path fill="#1976D2"
+                                d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C42.012 36.49 44 30.638 44 24c0-1.341-.138-2.65-.389-3.917z">
+                            </path>
+                        </svg>
+                        <span>Sign In with Google</span>
+                    </a>
+                </div>
+
+                <div class="social-media-separator">
+                    <div class="separator-line"></div>
+                    <span class="social-media-text">Or with your e-mail</span>
+                    <div class="separator-line"></div>
+                </div>
+            </div>
+
+            <form id="login-form-actual" class="form" novalidate>
+                <div class="form-row">
+                    <label for="login-email" class="form-label">E-mail</label>
+                    <input id="login-email" name="email" type="email" autocomplete="email" required class="form-input">
+                    <p id="login-email-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                </div>
+                <div class="form-row">
+                    <label for="login-password" class="form-label">Password</label>
+                    <div class="relative">
+                        <input id="login-password" name="password" type="password" autocomplete="current-password"
+                            required class="form-input">
+                        <button type="button"
+                            class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                fill="none">
+                                <g clip-path="url(#clip0_397_341)">
+                                    <path
+                                        d="M0.915998 8.51458C0.915998 8.51458 3.88705 2.91889 8.8439 3.04014C13.8008 3.16139 16.4947 8.89564 16.4947 8.89564C16.4947 8.89564 13.5236 14.4913 8.56677 14.3701C3.60992 14.2488 0.915998 8.51458 0.915998 8.51458Z"
+                                        stroke="#757575" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M8.65337 10.8295C9.82663 10.8582 10.801 9.93033 10.8297 8.75707C10.8584 7.58382 9.93055 6.60945 8.7573 6.58075C7.58404 6.55205 6.60967 7.47989 6.58097 8.65315C6.55227 9.8264 7.48012 10.8008 8.65337 10.8295Z"
+                                        stroke="#757575" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_397_341">
+                                        <rect width="17" height="17" fill="white"
+                                            transform="translate(0.41571) rotate(1.40119)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
+                    <p id="login-password-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                </div>
+                <a href="../forgot-password/" class="forgot-link">Forgot password?</a>
+                <div>
+                    <button type="submit" id="login-submit-button" class="form-submit-button">Login</button>
+                    <p id="login-general-error" class="text-red-500 text-sm text-center mt-4 hidden"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>
