@@ -919,7 +919,7 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
     if (!DOM.phoneInput) return null;
     return window.intlTelInput(DOM.phoneInput, {
       utilsScript:
-        "https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/utils.js",
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.1/build/js/utils.js",
       initialCountry: "auto",
       geoIpLookup: async (callback) => {
         const countryCode = await getCountryFromTrace();
