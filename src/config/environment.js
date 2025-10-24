@@ -31,7 +31,6 @@ const config = {
             ? process.env.GOOGLE_PROD_REDIRECT_URI
             : process.env.GOOGLE_DEV_REDIRECT_URI,
     },
-    // appleClientId: process.env.APPLE_CLIENT_ID,
   },
 };
 
