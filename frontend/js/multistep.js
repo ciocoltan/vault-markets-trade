@@ -936,7 +936,7 @@ const currentStepId = STEP_FLOW[stepIndexToSubmit];
   }
 
   async function startKycStatusPolling() {
-    const POLLING_INTERVAL = 5000; // Check every 5 seconds
+    const POLLING_INTERVAL = 1000; // Check every 1 seconds
     const MAX_ATTEMPTS = 60; // Stop after 5 minutes (60 attempts * 5 seconds)
     let attempts = 0;
 
