@@ -22,7 +22,7 @@ export { loadHtmlPartial };
 const getBaseApi = () => {
   return window.location.hostname.includes("localhost")
     ? "http://localhost:3001"
-    : "https://vaultmarkets-51f10334fa52.herokuapp.com";
+    : "https://vault-markets-trade-66af6cfcbf2a.herokuapp.com";
 };
 
 export const login = async (email, password, recaptchaToken) => {
