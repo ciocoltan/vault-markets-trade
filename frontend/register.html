@@ -8,7 +8,8 @@
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcFJusrAAAAAI4XeQgnTdAQ1sWQJmspwX-OhGIP" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcFJusrAAAAAI4XeQgnTdAQ1sWQJmspwX-OhGIP" async
+        defer></script>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -147,18 +148,26 @@
                             </div>
                             <p id="password-error" class="error-text hidden mt-1"></p>
                         </div>
-                        <div class="pt-2">
+                        <div class="box-section">
                             <div class="flex items-center">
                                 <input id="privacy-policy" name="privacy-policy" type="checkbox" required
                                     class="privacy-checkbox">
-                                <label for="privacy-policy" class="privacy-label">I acknowledge and accept the <a
-                                        href="https://vaultmarkets.trade/legal-documents/" class="privacy-link">Terms and Conditions.</a>
+                                <label for="privacy-policy" class="privacy-label"> I accept the Legal <a
+                                        href="https://vaultmarkets.trade/legal-documents/" class="privacy-link"> Terms &
+                                        Conditions.</a>
                                 </label>
                             </div>
-                            <p id="privacy-error" class="error-text hidden mt-1">Agreeing to the Privacy Policy is
-                                required
-                            </p>
+                            <p id="privacy-error" class="error-text hidden mt-1">Agreeing to the Terms & Conditions is
+                                required </p>
+
+                            <div class="flex items-center">
+                                <input id="marketing-comms" name="marketing-comms" type="checkbox"
+                                    class="privacy-checkbox">
+                                <label for="marketing-comms" class="privacy-label">I agree to receive
+                                    marketing and promotional communications</label>
+                            </div>
                         </div>
+
                         <button type="submit" id="register-submit-button" class="form-submit-button uppercase">Open
                             account</button>
                         <p id="general-error" class="error-text hidden mt-2 text-center"></p>

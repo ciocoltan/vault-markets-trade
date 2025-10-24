@@ -14,7 +14,8 @@ li {
     list-style: none;
 }
 
-.grecaptcha-badge, .grecaptcha-logo {
+.grecaptcha-badge,
+.grecaptcha-logo {
     display: none;
 }
 
@@ -296,6 +297,14 @@ header {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+.box-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .privacy-checkbox {
     appearance: none;
     -webkit-appearance: none;
@@ -385,7 +394,7 @@ header {
     margin: 0;
 }
 
-.form-step{
+.form-step {
     max-width: 800px;
     margin: 0 auto;
 }
@@ -611,7 +620,7 @@ header {
     max-height: 510px;
     overflow-y: auto;
     padding-right: 1rem;
-    scrollbar-width: 8px; 
+    scrollbar-width: 8px;
     scrollbar-color: #C6922F #f1f5f9;
 }
 
@@ -685,13 +694,15 @@ header {
 }
 
 @media (max-width: 1400px) {
-    .content-container{
+    .content-container {
         padding: 20px;
     }
+
     .form-container {
         padding: 50px;
         margin: 70px auto;
     }
+
     #multistep-container {
         padding: 0px;
         margin: 0;
@@ -710,14 +721,14 @@ header {
 
 @media only screen and (max-width: 600px) {
 
-    .content-container{
+    .content-container {
         padding: 20px;
     }
 
     .form-container {
         padding: 50px 25px;
         margin: 0;
-    }    
+    }
 
     .form-title {
         font-size: 26px;
@@ -757,8 +768,8 @@ header {
     }
 
     .step-option-btn {
-    font-size: 14px;
-}
+        font-size: 14px;
+    }
 
     .next-btn-section {
         margin-top: 30px;
